@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1nbs2567c728"]
+
+[ext_resource type="Script" uid="uid://cbjg65stdlowt" path="res://Scripts/you_won.gd" id="1_boyf1"]
+
+[node name="YouWon" type="CanvasLayer"]
+script = ExtResource("1_boyf1")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 92.0
+offset_bottom = 34.0
+scale = Vector2(0.359998, 0.359998)
+text = "YOU WON!!"
+
+[node name="Retry" type="Button" parent="."]
+offset_left = 15.0
+offset_top = 24.0
+offset_right = 65.0
+offset_bottom = 55.0
+scale = Vector2(0.200003, 0.200003)
+text = "Retry"
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]

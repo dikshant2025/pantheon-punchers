@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://g4q53tqa0wns"]
+
+[ext_resource type="Script" uid="uid://dxbqs0qlu8kdy" path="res://Scripts/player_three_frame.gd" id="1_0ah23"]
+[ext_resource type="Texture2D" uid="uid://cvq1brl877l3t" path="res://Data/Join Game Button.png" id="2_0ah23"]
+[ext_resource type="Texture2D" uid="uid://cacvnmlb6tr7q" path="res://Data/Player Three Portrait.png" id="2_hr1i6"]
+
+[node name="PlayerThreeFrame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1575.0
+offset_bottom = -465.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ah23")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.5
+offset_right = 172.5
+offset_bottom = 426.0
+grow_horizontal = 2
+texture = ExtResource("2_hr1i6")
+
+[node name="PlayerPortrait" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -100.0
+offset_right = 108.5
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -172.5
+offset_top = -168.0
+offset_right = 172.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_icons/icon = ExtResource("2_0ah23")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

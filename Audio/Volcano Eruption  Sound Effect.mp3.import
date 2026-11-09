@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://doqm2rh5iqebj"
+path="res://.godot/imported/Volcano Eruption  Sound Effect.mp3-c9b3d656399dc7e25555f7a411d5ceef.mp3str"
+
+[deps]
+
+source_file="res://Audio/Volcano Eruption  Sound Effect.mp3"
+dest_files=["res://.godot/imported/Volcano Eruption  Sound Effect.mp3-c9b3d656399dc7e25555f7a411d5ceef.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

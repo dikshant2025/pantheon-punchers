@@ -1,0 +1,147 @@
+[gd_scene load_steps=15 format=3 uid="uid://dyupfximipxpj"]
+
+[ext_resource type="Texture2D" uid="uid://cikgqjjgqs53f" path="res://Data/Lobby UI Art.png" id="1_bgfps"]
+[ext_resource type="Script" uid="uid://bg75yl4oi8rr8" path="res://Scripts/user_selection.gd" id="1_wus2g"]
+[ext_resource type="PackedScene" uid="uid://cxx16ocpp3lmw" path="res://Scene/player_one_frame.tscn" id="2_33l2o"]
+[ext_resource type="PackedScene" uid="uid://c5dbdfsab8li" path="res://Scene/player_two_frame.tscn" id="3_gc6gi"]
+[ext_resource type="Texture2D" uid="uid://bfgwi7fh1jbl" path="res://HerculesHead1.png" id="4_w4j7g"]
+[ext_resource type="PackedScene" uid="uid://g4q53tqa0wns" path="res://Scene/player_three_frame.tscn" id="4_wus2g"]
+[ext_resource type="PackedScene" uid="uid://bwfrpqysn1nt4" path="res://Scene/player_four_frame.tscn" id="5_aobst"]
+[ext_resource type="Texture2D" uid="uid://bf2a6dnci3d7p" path="res://HerculesHead2.png" id="6_2b6sx"]
+[ext_resource type="Texture2D" uid="uid://ooh6367p5gub" path="res://HerculesHead3.png" id="8_nqgy1"]
+[ext_resource type="Texture2D" uid="uid://bhoybgwdfjuqw" path="res://HerculesHead4.png" id="10_0bjts"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kc755"]
+bg_color = Color(1, 0.384314, 0.0313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxx2d"]
+bg_color = Color(1, 0.435294, 0.121569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j56f"]
+bg_color = Color(1, 0.415686, 0.156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1iir"]
+bg_color = Color(1, 0.431373, 0.152941, 1)
+
+[node name="UserSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.599998, 0.599998)
+script = ExtResource("1_wus2g")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_bgfps")
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 240.0
+offset_right = 1720.0
+offset_bottom = 900.0
+color = Color(0.831373, 0.772549, 0.529412, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 245.0
+offset_right = 1710.0
+offset_bottom = 865.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="PlayerOneFrame" parent="CenterContainer/HBoxContainer" instance=ExtResource("2_33l2o")]
+custom_minimum_size = Vector2(345, 615)
+layout_mode = 2
+script = null
+
+[node name="PlayerPortrait" parent="CenterContainer/HBoxContainer/PlayerOneFrame/TextureRect" index="0"]
+offset_left = -365.167
+offset_top = -495.0
+offset_right = 7.83365
+offset_bottom = 13.0002
+scale = Vector2(1.91864, 1.91864)
+texture = ExtResource("4_w4j7g")
+
+[node name="Button" parent="CenterContainer/HBoxContainer/PlayerOneFrame" index="1"]
+theme_override_styles/focus = SubResource("StyleBoxFlat_kc755")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PlayerTwoFrame" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_gc6gi")]
+custom_minimum_size = Vector2(345, 615)
+layout_mode = 2
+script = null
+
+[node name="PlayerPortrait" parent="CenterContainer/HBoxContainer/PlayerTwoFrame/TextureRect" index="0"]
+offset_left = -341.165
+offset_top = -481.5
+offset_right = 31.8348
+offset_bottom = 26.4996
+scale = Vector2(1.86667, 1.86667)
+texture = ExtResource("6_2b6sx")
+
+[node name="Button" parent="CenterContainer/HBoxContainer/PlayerTwoFrame" index="1"]
+theme_override_styles/focus = SubResource("StyleBoxFlat_rxx2d")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PlayerThreeFrame" parent="CenterContainer/HBoxContainer" instance=ExtResource("4_wus2g")]
+custom_minimum_size = Vector2(345, 615)
+layout_mode = 2
+script = null
+
+[node name="PlayerPortrait" parent="CenterContainer/HBoxContainer/PlayerThreeFrame/TextureRect" index="0"]
+offset_left = -340.497
+offset_top = -493.667
+offset_right = 32.5027
+offset_bottom = 14.3337
+scale = Vector2(1.93335, 1.93335)
+texture = ExtResource("8_nqgy1")
+
+[node name="Button" parent="CenterContainer/HBoxContainer/PlayerThreeFrame" index="1"]
+theme_override_styles/focus = SubResource("StyleBoxFlat_7j56f")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PlayerFourFrame" parent="CenterContainer/HBoxContainer" instance=ExtResource("5_aobst")]
+custom_minimum_size = Vector2(345, 615)
+layout_mode = 2
+script = null
+
+[node name="PlayerPortrait" parent="CenterContainer/HBoxContainer/PlayerFourFrame/TextureRect" index="0"]
+offset_left = -391.496
+offset_top = -494.167
+offset_right = -18.4961
+offset_bottom = 13.8336
+scale = Vector2(2, 2)
+texture = ExtResource("10_0bjts")
+
+[node name="Button" parent="CenterContainer/HBoxContainer/PlayerFourFrame" index="1"]
+theme_override_styles/focus = SubResource("StyleBoxFlat_g1iir")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="focus_entered" from="CenterContainer/HBoxContainer/PlayerOneFrame/Button" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PlayerOneFrame/Button" to="." method="_on_slot_button_pressed" binds= [1]]
+[connection signal="focus_entered" from="CenterContainer/HBoxContainer/PlayerTwoFrame/Button" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PlayerTwoFrame/Button" to="." method="_on_slot_button_pressed" binds= [2]]
+[connection signal="focus_entered" from="CenterContainer/HBoxContainer/PlayerThreeFrame/Button" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PlayerThreeFrame/Button" to="." method="_on_slot_button_pressed" binds= [3]]
+[connection signal="focus_entered" from="CenterContainer/HBoxContainer/PlayerFourFrame/Button" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/PlayerFourFrame/Button" to="." method="_on_slot_button_pressed" binds= [4]]
+
+[editable path="CenterContainer/HBoxContainer/PlayerOneFrame"]
+[editable path="CenterContainer/HBoxContainer/PlayerTwoFrame"]
+[editable path="CenterContainer/HBoxContainer/PlayerThreeFrame"]
+[editable path="CenterContainer/HBoxContainer/PlayerFourFrame"]

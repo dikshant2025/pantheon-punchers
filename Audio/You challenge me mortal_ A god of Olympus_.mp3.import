@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8nggqgi2376w"
+path="res://.godot/imported/You challenge me mortal_ A god of Olympus_.mp3-7b48fc0bd401c20476cf8f83b88cd9bb.mp3str"
+
+[deps]
+
+source_file="res://Audio/You challenge me mortal_ A god of Olympus_.mp3"
+dest_files=["res://.godot/imported/You challenge me mortal_ A god of Olympus_.mp3-7b48fc0bd401c20476cf8f83b88cd9bb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,121 @@
+[gd_scene load_steps=15 format=3 uid="uid://nljyh8u003ud"]
+
+[ext_resource type="Script" uid="uid://d4m6o6mxk2ea6" path="res://Scripts/Player.gd" id="1_gsjym"]
+[ext_resource type="Texture2D" uid="uid://cgbhd42ukh8dy" path="res://Hercules.png" id="2_yd14d"]
+[ext_resource type="AudioStream" uid="uid://rnrdu1axhtnm" path="res://Audio/fantasy-game-sword-cut-sound-effect-get-more-on-my-patreon-339824.mp3" id="4_i6n32"]
+[ext_resource type="AudioStream" uid="uid://cqtbqfbjrl7rd" path="res://Audio/videogame-death-sound-43894.mp3" id="6_cm63u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd14d"]
+atlas = ExtResource("2_yd14d")
+region = Rect2(0, 270, 73, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6n32"]
+atlas = ExtResource("2_yd14d")
+region = Rect2(73, 270, 73, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3mu8"]
+atlas = ExtResource("2_yd14d")
+region = Rect2(146, 270, 73, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm63u"]
+atlas = ExtResource("2_yd14d")
+region = Rect2(219, 270, 73, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsjym"]
+atlas = ExtResource("2_yd14d")
+region = Rect2(292, 270, 73, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4upal"]
+atlas = ExtResource("2_yd14d")
+region = Rect2(0, 0, 81, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkvmy"]
+atlas = ExtResource("2_yd14d")
+region = Rect2(0, 90, 84, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nwdj"]
+atlas = ExtResource("2_yd14d")
+region = Rect2(84, 90, 84, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m64xc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd14d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6n32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3mu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm63u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsjym")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 3.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4upal")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkvmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nwdj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5p74"]
+
+[node name="Player1" type="CharacterBody2D" groups=["players"]]
+scale = Vector2(0.3, 0.3)
+collision_mask = 6
+script = ExtResource("1_gsjym")
+
+[node name="AnimationPlayer" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.33333, 3.33331)
+scale = Vector2(2.04, 1.84)
+sprite_frames = SubResource("SpriteFrames_m64xc")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9.99997)
+scale = Vector2(4.20803, 3.96259)
+shape = SubResource("CapsuleShape2D_w5p74")
+debug_color = Color(2.5028e-06, 0.592292, 0.74234, 0.42)
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("4_i6n32")
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Die" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("6_cm63u")

@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://day845ntmeqax"]
+
+[ext_resource type="Script" uid="uid://bhfp8dlgit326" path="res://Scripts/Enemy.gd" id="1_h0dic"]
+[ext_resource type="Texture2D" uid="uid://djsi8fju8hjn8" path="res://Data/Hades.png" id="2_6abbc"]
+[ext_resource type="AudioStream" uid="uid://nr5c2n5scelp" path="res://Audio/You are nothing_ [AXb99a3GHnI].mp3" id="3_gruw0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gruw0"]
+atlas = ExtResource("2_6abbc")
+region = Rect2(0, 228, 136, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mjrd"]
+atlas = ExtResource("2_6abbc")
+region = Rect2(136, 228, 136, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpva6"]
+atlas = ExtResource("2_6abbc")
+region = Rect2(272, 228, 136, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q1eq"]
+atlas = ExtResource("2_6abbc")
+region = Rect2(408, 228, 136, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yxo1"]
+atlas = ExtResource("2_6abbc")
+region = Rect2(0, 0, 135, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4msb"]
+atlas = ExtResource("2_6abbc")
+region = Rect2(0, 112, 136, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce4q5"]
+atlas = ExtResource("2_6abbc")
+region = Rect2(136, 112, 136, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kleyg"]
+atlas = ExtResource("2_6abbc")
+region = Rect2(272, 112, 136, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nc1xg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gruw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mjrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpva6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q1eq")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yxo1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4msb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce4q5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kleyg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wn6j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gruw0"]
+
+[node name="Enemy1" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_h0dic")
+max_health = 600
+attack_damage = 50
+attack_cooldown = 2.0
+attack_range = 50.0
+
+[node name="AnimationEnemy" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nc1xg")
+animation = &"attack"
+frame_progress = 0.732148
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.95273, 2.95273)
+shape = SubResource("CapsuleShape2D_5wn6j")
+
+[node name="AggroArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
+scale = Vector2(15, 15)
+shape = SubResource("CircleShape2D_gruw0")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("3_gruw0")
+volume_db = 24.0
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Die" type="AudioStreamPlayer2D" parent="SFX"]

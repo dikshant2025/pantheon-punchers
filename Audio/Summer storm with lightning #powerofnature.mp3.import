@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dbd6nx334adub"
+path="res://.godot/imported/Summer storm with lightning #powerofnature.mp3-ada582268e31d64310549f538f82a757.mp3str"
+
+[deps]
+
+source_file="res://Audio/Summer storm with lightning #powerofnature.mp3"
+dest_files=["res://.godot/imported/Summer storm with lightning #powerofnature.mp3-ada582268e31d64310549f538f82a757.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

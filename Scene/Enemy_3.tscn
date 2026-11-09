@@ -1,0 +1,127 @@
+[gd_scene load_steps=14 format=3 uid="uid://b3yj08k1vtxet"]
+
+[ext_resource type="Script" uid="uid://bhfp8dlgit326" path="res://Scripts/Enemy.gd" id="1_38bmv"]
+[ext_resource type="Texture2D" uid="uid://cu3b3lg4s78qn" path="res://Thor.png" id="2_wmd8w"]
+[ext_resource type="AudioStream" uid="uid://bt17uurkwosog" path="res://Audio/Shao Kahn laugh and taunt (for memes).mp3" id="3_fg8k4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg8k4"]
+atlas = ExtResource("2_wmd8w")
+region = Rect2(0, 241, 243, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfqh4"]
+atlas = ExtResource("2_wmd8w")
+region = Rect2(243, 241, 243, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6fj5"]
+atlas = ExtResource("2_wmd8w")
+region = Rect2(486, 241, 243, 241)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po4ev"]
+atlas = ExtResource("2_wmd8w")
+region = Rect2(0, 0, 237, 220)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7pii"]
+atlas = ExtResource("2_wmd8w")
+region = Rect2(162, 864, 162, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1frs0"]
+atlas = ExtResource("2_wmd8w")
+region = Rect2(486, 864, 162, 216)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0nmi"]
+atlas = ExtResource("2_wmd8w")
+region = Rect2(810, 864, 162, 216)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nc1xg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg8k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfqh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6fj5")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po4ev")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7pii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1frs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0nmi")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwhwp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fg8k4"]
+
+[node name="Enemy3" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(32, 5)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_38bmv")
+max_health = 1000
+attack_damage = 100
+attack_range = 50.0
+
+[node name="AnimationEnemy" type="AnimatedSprite2D" parent="."]
+position = Vector2(-36, 12)
+sprite_frames = SubResource("SpriteFrames_nc1xg")
+animation = &"attack"
+frame_progress = 0.426829
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 19)
+scale = Vector2(5.04, 5.04)
+shape = SubResource("CapsuleShape2D_gwhwp")
+
+[node name="AggroArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
+position = Vector2(-16, 23)
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_fg8k4")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("3_fg8k4")
+volume_db = 24.0
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Die" type="AudioStreamPlayer2D" parent="SFX"]

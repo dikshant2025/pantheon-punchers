@@ -1,0 +1,38 @@
+{
+  "sword_light_1": {
+	"damage": 8,
+	"kb": [180, -20],
+	"hitstun_ms": 100,
+	"startup": 6,
+	"active": 4,
+	"recovery": 8,
+	"next": "sword_light_2"
+  },
+  "sword_light_2": {
+	"damage": 8,
+	"kb": [200, -10],
+	"hitstun_ms": 100,
+	"startup": 6,
+	"active": 4,
+	"recovery": 10,
+	"next": "sword_light_3"
+  },
+  "sword_light_3": {
+	"damage": 14,
+	"kb": [260, -40],
+	"hitstun_ms": 160,
+	"startup": 8,
+	"active": 5,
+	"recovery": 14,
+	"next": null
+  },
+  "sword_heavy": {
+	"damage": 22,
+	"kb": [200, -120],
+	"hitstun_ms": 220,
+	"startup": 14,
+	"active": 5,
+	"recovery": 18,
+	"next": null
+  }
+}

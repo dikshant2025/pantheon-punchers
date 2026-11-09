@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqn53nhpm7kwx"]
+
+[ext_resource type="Script" uid="uid://42iiaj1m3bet" path="res://Scripts/CameraRig.gd" id="1_bhq8m"]
+
+[node name="CameraRig" type="Node2D" groups=["camera_rig"]]
+scale = Vector2(1, -0.24)
+script = ExtResource("1_bhq8m")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera_rig"]]
+scale = Vector2(1.11481, 1.11481)
+process_callback = 0

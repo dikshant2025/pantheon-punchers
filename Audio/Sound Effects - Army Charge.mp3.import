@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkk1po08qny5f"
+path="res://.godot/imported/Sound Effects - Army Charge.mp3-57aee54a8475ced5bafe3595a8744d30.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound Effects - Army Charge.mp3"
+dest_files=["res://.godot/imported/Sound Effects - Army Charge.mp3-57aee54a8475ced5bafe3595a8744d30.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

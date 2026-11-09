@@ -1,0 +1,132 @@
+[gd_scene load_steps=15 format=3 uid="uid://b6jv1ajkktcj"]
+
+[ext_resource type="Script" uid="uid://bhfp8dlgit326" path="res://Scripts/Enemy.gd" id="1_21eu7"]
+[ext_resource type="Texture2D" uid="uid://c32xu6uwe8rcr" path="res://Data/PosiedonSpriteSheet.png" id="2_do0kt"]
+[ext_resource type="AudioStream" uid="uid://8nggqgi2376w" path="res://Audio/You challenge me mortal_ A god of Olympus_.mp3" id="3_sesxu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sesxu"]
+atlas = ExtResource("2_do0kt")
+region = Rect2(0, 312, 153, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2k1t"]
+atlas = ExtResource("2_do0kt")
+region = Rect2(153, 312, 153, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os6s6"]
+atlas = ExtResource("2_do0kt")
+region = Rect2(306, 312, 153, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vayfr"]
+atlas = ExtResource("2_do0kt")
+region = Rect2(459, 312, 153, 156)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hud71"]
+atlas = ExtResource("2_do0kt")
+region = Rect2(0, 0, 154, 171)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5y8wj"]
+atlas = ExtResource("2_do0kt")
+region = Rect2(0, 161, 154, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he081"]
+atlas = ExtResource("2_do0kt")
+region = Rect2(154, 161, 154, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x2vq"]
+atlas = ExtResource("2_do0kt")
+region = Rect2(308, 161, 154, 161)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nc1xg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sesxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2k1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os6s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vayfr")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hud71")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5y8wj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he081")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x2vq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_do0kt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sesxu"]
+
+[node name="Enemy2" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_21eu7")
+max_health = 800
+attack_damage = 75
+attack_cooldown = 2.0
+attack_range = 50.0
+
+[node name="AnimationEnemy" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nc1xg")
+animation = &"death"
+frame_progress = 0.745494
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 12)
+scale = Vector2(3.36756, 3.36756)
+shape = SubResource("CapsuleShape2D_do0kt")
+
+[node name="AggroArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
+scale = Vector2(15, 15)
+shape = SubResource("CircleShape2D_sesxu")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("3_sesxu")
+volume_db = 14.926
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Die" type="AudioStreamPlayer2D" parent="SFX"]
